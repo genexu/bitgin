@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import Layout from '@/components/Layout';
+import Jumbotron from './Jumbotron';
 
 export default function Home() {
   return (
@@ -7,6 +8,7 @@ export default function Home() {
       <Head>
         <title>Bitgin | Home</title>
       </Head>
+      <Jumbotron />
     </Layout>
   );
 }
