@@ -1,7 +1,14 @@
 import Head from 'next/head';
+import { styled } from '@mui/material/styles';
+import CssBaseline from '@mui/material/CssBaseline';
+import Container from '@mui/material/Container';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import styles from '@/styles/Layout.module.css';
+
+const StyledContainer = styled(Container)(({ theme }) => ({
+  paddingTop: theme.spacing(4),
+  paddingBottom: theme.spacing(4),
+}));
 
 const Layout = ({ children }) => (
   <>
@@ -11,8 +18,11 @@ const Layout = ({ children }) => (
       <link rel="icon" href="/favicon.ico" />
     </Head>
     <Header />
-    <main className={styles.main}>{children}</main>
-    <Footer />
+    <CssBaseline />
+    <StyledContainer component="main" maxWidth="lg">
+      {children}
+    </StyledContainer>
+    {/* <Footer /> */}
   </>
 );
 

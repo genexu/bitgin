@@ -1,3 +1,5 @@
+const baseURL = `${process.env.NEXT_PUBLIC_API_URL}/api`;
+
 export const enableAll = true;
 
 export const rests = {
@@ -5,7 +7,7 @@ export const rests = {
     // Path Example:
     // '/api/health'
     // 'https://api.domain.com/api/health'
-    path: 'https://api.domain.com/api/health',
+    path: `${baseURL}/health`,
     // status: 403, // set response status code and response error information, default is 200
     // delay: 1000, // delay api response
     data: {
@@ -20,6 +22,22 @@ export const rests = {
         code: 'ERROR-500',
         message: 'Service not available right now.',
       },
+    },
+  },
+  auth: {
+    method: 'post',
+    path: `${baseURL}/auth`,
+    delay: 1000,
+    data: {
+      token: 'JWT_TOKEN',
+      expires_at: 9999999999,
+    },
+  },
+  userMe: {
+    path: `${baseURL}/users/me`,
+    data: {
+      account: 'genexu@email.com',
+      username: 'Gene Xu',
     },
   },
 };
